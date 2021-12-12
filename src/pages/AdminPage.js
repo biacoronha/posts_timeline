@@ -2,6 +2,7 @@ import { Table, Button } from 'semantic-ui-react'
 import { useEffect, useState } from 'react';
 import ActionCard from "../components/ActionCard";
 import Header from '../components/Header';
+import './AdminPage.css'
 
 export default function AdminPage() {
     const [employeesArray, setEmployeesArray] = useState('');
@@ -57,7 +58,7 @@ export default function AdminPage() {
         {(isNew !== null && isNew === true) ?  
         <ActionCard action={createEmployee} isNew={true}/>: ''}
 
-        <Button onClick={openCreate}>Create</Button>
+        <Button className='create-btn' color='green' onClick={openCreate}>Create</Button>
         <Table singleLine>
             <Table.Header>
                 <Table.Row>
@@ -82,10 +83,10 @@ export default function AdminPage() {
                         <Table.Cell>{data.role}</Table.Cell>
                         <Table.Cell>{data.name}</Table.Cell>
                         <Table.Cell> 
-                            <Button onClick={openEdit}>Update</Button>
+                            <Button color='blue' onClick={openEdit}>Update</Button>
                         </Table.Cell>
                         <Table.Cell> 
-                            <Button onClick={removeEmployee}>Delete</Button>
+                            <Button color='red' onClick={removeEmployee}>Delete</Button>
                         </Table.Cell>
                         {(isNew !== null && isNew === false) ?
                             <ActionCard action={editEmployee} isNew={false} employee={data}/>
