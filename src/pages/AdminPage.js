@@ -54,6 +54,8 @@ export default function AdminPage() {
     return (
         <div>
         <Header/>
+        {(isNew !== null && isNew === true) ?  
+        <ActionCard action={createEmployee} isNew={true}/>: ''}
 
         <Button onClick={openCreate}>Create</Button>
         <Table singleLine>
@@ -85,11 +87,9 @@ export default function AdminPage() {
                         <Table.Cell> 
                             <Button onClick={removeEmployee}>Delete</Button>
                         </Table.Cell>
-                        {isNew ?
-                            <ActionCard action={createEmployee} isNew={true}/>
-                            : isNew !== null ?
-                                <ActionCard action={editEmployee} isNew={false} employee={data}/>
-                            : <></>}
+                        {(isNew !== null && isNew === false) ?
+                            <ActionCard action={editEmployee} isNew={false} employee={data}/>
+                        : <></>}
                     </Table.Row>
                 )}):console.log('aaaa' . employeesArray)}
             </Table.Body>

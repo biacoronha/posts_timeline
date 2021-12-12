@@ -18,11 +18,11 @@ export default function ActionCard(props) {
 
 
     const mountEmployee = () => {
-        setOpen(false)
         const employee = new Employee(id, username, phone, role, name)
         console.log(employee)
         //validate employee
-        return action //call action function with employee
+        action(employee)
+        setOpen(false)
     }
 
     return (
