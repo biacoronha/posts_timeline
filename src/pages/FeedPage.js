@@ -7,7 +7,7 @@ import './FeedPage.css'
 export default function FeedPage() {
 
     const [postsArray, setPostsArray] = useState('');
-    const [isNew, setIsNew] = useState(null);
+    const [isEdit, setIsEdit] = useState(null);
 
     function createPost(post) {
         console.log('create')
@@ -21,6 +21,7 @@ export default function FeedPage() {
         postsArray[indexOfPost] = post
         setPostsArray(postsArray)
         localStorage.setItem('posts', JSON.stringify(postsArray))
+        setIsEdit(null)
     }
 
     function removePost(post) {
@@ -43,16 +44,9 @@ export default function FeedPage() {
         console.log(posts)
     }, [postsArray])
 
-    const openCreate = () => {
-        setIsNew(true)
-    }
-
     const openEdit = () => {
-        setIsNew(false)
+        setIsEdit(true)
     }
-
-
-
 
     return (
         <div>
@@ -73,9 +67,11 @@ export default function FeedPage() {
                                 {data.content}
                             </Feed.Extra>
                         </Feed.Content> 
-                        <Button onClick={openEdit}>Edit</Button>
-                        <Button onClick={removePost}>Remove</Button>
+                        <Button color='blue' onClick={openEdit}>Edit</Button>
+                        <Button color='red' onClick={removePost}>Remove</Button>
                     </Feed.Event>
+                    {isEdit ? <PostCard action={editPost} postToEdit={data}/>
+                    :<></>}
                 </Feed>
             )}):''}
         </div>
