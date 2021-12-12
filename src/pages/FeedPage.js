@@ -33,15 +33,19 @@ export default function FeedPage() {
 
     function getPosts() {
         const storedArray = localStorage.getItem('posts')
-        console.log(storedArray)
-        console.log(JSON.parse(storedArray))
-        return JSON.parse(storedArray);
+        let arrayOfPosts = JSON.parse(storedArray);
+        arrayOfPosts.sort((a, b) => {
+            let da = new Date(a.creationDate),
+                db = new Date(b.creationDate);
+            return db - da;
+        });
+        
+        return arrayOfPosts
     }
 
     useEffect(() => {
-        const posts = getPosts()
+        let posts = getPosts()
         setPostsArray(posts)
-        console.log(posts)
     }, [postsArray])
 
     const openEdit = () => {
@@ -50,7 +54,7 @@ export default function FeedPage() {
 
     return (
         <div>
-        {/* <Header/> */}
+        <Header/>
         <div className='main-feed'>
             <PostCard action={createPost}/>
             {(postsArray && postsArray.length > 0) ? 
@@ -61,7 +65,7 @@ export default function FeedPage() {
                         <Feed.Content>
                             <Feed.Summary>
                                 New Post
-                                <Feed.Date>3 days go</Feed.Date>
+                                <Feed.Date>{data.creationDate}</Feed.Date>
                             </Feed.Summary>
                             <Feed.Extra text>
                                 {data.content}

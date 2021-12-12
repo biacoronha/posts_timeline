@@ -10,7 +10,8 @@ export default function PostCard(props) {
     const [creationDate, setCreationDate] = useState('')
 
     const mountPost = () => {
-        setCreationDate(new Date())
+        const date = new Date()
+        setCreationDate(date.toLocaleString())
         const post = new Post(content, creationDate)
         console.log(post)
         action(post)
