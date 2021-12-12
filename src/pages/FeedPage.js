@@ -41,8 +41,7 @@ export default function FeedPage() {
         const posts = getPosts()
         setPostsArray(posts)
         console.log(posts)
-        console.log(setPostsArray)
-    }, [])
+    }, [postsArray])
 
     const openCreate = () => {
         setIsNew(true)
@@ -57,7 +56,7 @@ export default function FeedPage() {
 
     return (
         <div>
-        <Header/>
+        {/* <Header/> */}
         <div className='main-feed'>
             <PostCard action={createPost}/>
             {(postsArray && postsArray.length > 0) ? 

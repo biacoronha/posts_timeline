@@ -40,7 +40,7 @@ export default function AdminPage() {
         setEmployeesArray(employees)
         console.log(employees)
         console.log(employeesArray)
-    }, [])
+    }, [employeesArray])
 
     const openCreate = () => {
         setIsNew(true)
@@ -53,7 +53,7 @@ export default function AdminPage() {
 
     return (
         <div>
-        <Header/>
+        {/* <Header/> */}
         {(isNew !== null && isNew === true) ?  
         <ActionCard action={createEmployee} isNew={true}/>: ''}
 
