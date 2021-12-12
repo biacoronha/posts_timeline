@@ -1,3 +1,4 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 import FeedPage from './pages/FeedPage';
 import AdminPage from './pages/AdminPage';
@@ -5,14 +6,12 @@ import AdminPage from './pages/AdminPage';
 function App() {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route path="/" exact>
-          <FeedPage />
+      <Routes>
+      <Route exact path="/" element={<FeedPage/>}>
         </Route>
-        <Route path="/admin" exact>
-        <AdminPage />
+        <Route exact path="/admin" element={<AdminPage/>}>
         </Route>
-      </Switch>
+      </Routes>
     </BrowserRouter>
   );
 }

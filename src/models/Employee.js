@@ -1,3 +1,4 @@
+//remove this??
 export default class Employee {
     
     id;
@@ -6,7 +7,13 @@ export default class Employee {
     role;
     name;
 
-    constructor() {}
+    constructor(id, username, phone, role, name) {
+        this.id = id;
+        this.username = username;
+        this.phone = phone;
+        this.role = role;
+        this.name = name;
+    }
 
     setUsername(username){
         this.username = username
