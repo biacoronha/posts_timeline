@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import {Feed} from 'semantic-ui-react'
+import {Feed, Button} from 'semantic-ui-react'
 import Header from '../components/Header';
 import PostCard from '../components/PostCard';
 import './FeedPage.css'
@@ -72,8 +72,9 @@ export default function FeedPage() {
                             <Feed.Extra text>
                                 {data.content}
                             </Feed.Extra>
-                        </Feed.Content>
-
+                        </Feed.Content> 
+                        <Button onClick={openEdit}>Edit</Button>
+                        <Button onClick={removePost}>Remove</Button>
                     </Feed.Event>
                 </Feed>
             )}):''}

@@ -36,23 +36,23 @@ export default function ActionCard(props) {
                 <Form className="create-form">
                     <Form.Field>
                         <label>ID</label>
-                        <input placeholder='ID' onChange={(e) => setId(e.target.value)} required={true} disabled={!isNew} />
+                        <input placeholder={isNew ? 'ID' : `${employee.id}`} onChange={(e) => setId(e.target.value)} required={true} disabled={!isNew} />
                     </Form.Field>
                     <Form.Field>
                         <label>Username</label>
-                        <input placeholder='Username' onChange={(e) => setUsername(e.target.value)} required={true} />
+                        <input placeholder={isNew ? 'Username' : `${employee.username}`} onChange={(e) => setUsername(e.target.value)} required={true} />
                     </Form.Field>
                     <Form.Field>
                         <label>Phone</label>
-                        <input placeholder='Phone' onChange={(e) => setPhone(e.target.value)} required={true} />
+                        <input placeholder={isNew ? 'Phone' : `${employee.phone}`} onChange={(e) => setPhone(e.target.value)} required={true} />
                     </Form.Field>
                     <Form.Field>
                         <label>Role</label>
-                        <input placeholder='Role' onChange={(e) => setRole(e.target.value)} required={true} />
+                        <input placeholder={isNew ? 'Role' : `${employee.role}`} onChange={(e) => setRole(e.target.value)} required={true} />
                     </Form.Field>
                     <Form.Field>
                         <label>Name</label>
-                        <input placeholder='Name' onChange={(e) => setName(e.target.value)} required={true} />
+                        <input placeholder={isNew ? 'Name' : `${employee.name}`} onChange={(e) => setName(e.target.value)} required={true} />
                     </Form.Field>
                 </Form>
             </Modal.Content>
